@@ -1,24 +1,24 @@
 import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import About from "@/components/About";
+import IntroSequence from "@/components/IntroSequence";
 import Skills from "@/components/Skills";
 import Certifications from "@/components/Certifications";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
+import CustomCursor from "@/components/CustomCursor";
 
 export default function Home() {
   return (
     <>
+      <CustomCursor />
       <ScrollProgress />
       <Navbar />
       <main>
-        <Hero />
-        <About />
+        <IntroSequence />
+        <Projects />
         <Skills />
         <Certifications />
-        <Projects />
         <Contact />
       </main>
       <Footer />

@@ -145,7 +145,7 @@ export default function Projects() {
             className="text-xs font-semibold tracking-widest uppercase"
             style={{ color: "var(--accent-light)" }}
           >
-            04. Proyectos
+            01. Proyectos
           </motion.span>
           <motion.div
             initial={{ scaleX: 0 }}

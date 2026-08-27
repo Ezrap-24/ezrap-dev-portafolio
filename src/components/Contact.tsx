@@ -42,7 +42,7 @@ export default function Contact() {
             className="text-xs font-semibold tracking-widest uppercase"
             style={{ color: "var(--accent-light)" }}
           >
-            05. Contacto
+            04. Contacto
           </motion.span>
           <motion.div
             initial={{ scaleX: 0 }}

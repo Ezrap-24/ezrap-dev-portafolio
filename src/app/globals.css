@@ -83,3 +83,68 @@ body {
 
 .float { animation: float 4s ease-in-out infinite; }
 .pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+
+/* ── Marquee del hero (CSS puro: corre en el compositor, no en JS) ── */
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes marquee-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+.marquee-solid {
+  animation: marquee-left 18s linear infinite;
+  will-change: transform;
+}
+.marquee-ghost {
+  animation: marquee-right 26s linear infinite;
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-solid, .marquee-ghost { animation: none; }
+}
+
+/* ── Cursor custom: ocultar el nativo solo cuando está activo (desktop) ── */
+.custom-cursor, .custom-cursor * {
+  cursor: none !important;
+}
+
+/* ── Tarjetas de borde punteado (Lo que hago) ── */
+.dashed-card {
+  border: 1px dashed rgba(255, 255, 255, 0.25);
+  background: rgba(7, 7, 15, 0.55);
+  backdrop-filter: blur(2px);
+  transition: border-color 0.35s ease, background 0.35s ease,
+    transform 0.35s ease, box-shadow 0.35s ease;
+}
+.dashed-card:hover {
+  border-color: rgba(124, 58, 237, 0.65);
+  border-style: solid;
+  background: rgba(124, 58, 237, 0.08);
+  transform: translateY(-4px);
+  box-shadow: 0 0 45px rgba(124, 58, 237, 0.18);
+}
+.dashed-card:hover h3 {
+  color: var(--accent-light) !important;
+}
+
+/* ── Esquinas tipo "marco de selección" (estilo moncy.dev) ── */
+.dashed-card {
+  position: relative;
+}
+.dashed-card .corner {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
+  border: 0 solid rgba(255, 255, 255, 0.9);
+  transition: border-color 0.35s ease;
+}
+.dashed-card .corner-tl { top: -7px; left: -7px; border-top-width: 2px; border-left-width: 2px; }
+.dashed-card .corner-tr { top: -7px; right: -7px; border-top-width: 2px; border-right-width: 2px; }
+.dashed-card .corner-bl { bottom: -7px; left: -7px; border-bottom-width: 2px; border-left-width: 2px; }
+.dashed-card .corner-br { bottom: -7px; right: -7px; border-bottom-width: 2px; border-right-width: 2px; }
+.dashed-card:hover .corner {
+  border-color: var(--accent-light);
+}
